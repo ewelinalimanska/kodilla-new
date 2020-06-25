@@ -1,6 +1,6 @@
 package com.kodilla.patterns.factory.tasks;
 
-public class ShoppingTask implements Task {
+public final class ShoppingTask implements Task {
 
     final String taskName;
     final String whatToBuy;
@@ -14,16 +14,20 @@ public class ShoppingTask implements Task {
 
     @Override
     public String executeTask() {
-        return null;
+        return "Task: " + taskName + ", you must buy: " + whatToBuy + ", in quantity: " + quantity;
     }
 
     @Override
     public String getTaskName() {
-        return null;
+        return taskName;
     }
 
     @Override
     public boolean isTaskExecuted() {
-        return true;
+        if (quantity > 3) {
+            return true;
+        }else {
+            return false;
+        }
     }
 }
