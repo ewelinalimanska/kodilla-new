@@ -3,6 +3,7 @@ package com.kodilla.hibernate.tasklist.dao;
 import com.kodilla.hibernate.tasklist.TaskList;
 import com.kodilla.hibernate.tasklist.TaskListDao;
 import org.junit.Assert;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,6 +20,7 @@ public class TaskListDaoTestSuite {
     private static final String LISTNAME = "Test: List name";
     private static final String DESCRIPTION = "Test: Learn Hibernate";
 
+    @Test
     public void testFindByListName(){
 
         //given
@@ -30,9 +32,11 @@ public class TaskListDaoTestSuite {
         //then
         String listname = taskList.getListName();
         List<TaskList> readTaskList = taskListDao.findByListName(listname);
-        Assert.assertEquals(2, readTaskList.size());
+        Assert.assertEquals(1, readTaskList.size());
 
         //cleanUp
+        int id = taskList.getId();
+        taskListDao.deleteById(id);
 
     }
 }
