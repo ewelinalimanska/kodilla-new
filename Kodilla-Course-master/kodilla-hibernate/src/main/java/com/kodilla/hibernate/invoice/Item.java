@@ -36,7 +36,7 @@ public class Item {
 
     @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "PRODUCT")
+    @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
@@ -60,7 +60,7 @@ public class Item {
     }
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "INVOICE")
+    @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;
     }

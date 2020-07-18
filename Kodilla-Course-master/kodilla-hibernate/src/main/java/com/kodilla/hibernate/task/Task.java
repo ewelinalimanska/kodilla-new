@@ -66,7 +66,7 @@ public final class Task {
     }
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "TASK FINANCIALS ID")
+    @JoinColumn(name = "TASK_FINANCIALS_ID")
     public TaskFinancialDetails getTaskFinancialDetails() {
         return taskFinancialDetails;
     }

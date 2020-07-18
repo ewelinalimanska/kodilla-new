@@ -3,6 +3,7 @@ package com.kodilla.hibernate.manytomany;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,7 +11,7 @@ import java.util.List;
 public class Company {
     private int id;
     private String name;
-    private List<Employee> employees;
+    private List<Employee> employees = new ArrayList<>();
 
     public Company() {
     }
