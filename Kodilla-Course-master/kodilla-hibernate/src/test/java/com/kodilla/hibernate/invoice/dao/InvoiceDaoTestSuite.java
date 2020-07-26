@@ -33,6 +33,10 @@ public class InvoiceDaoTestSuite {
 
         Invoice invoice1 = new Invoice("FV/01/01/2020");
 
+        invoice1.getItems().add(item1);
+        invoice1.getItems().add(item2);
+        invoice1.getItems().add(item3);
+
         item1.setInvoice(invoice1);
         item2.setInvoice(invoice1);
         item3.setInvoice(invoice1);
@@ -40,10 +44,6 @@ public class InvoiceDaoTestSuite {
         item1.setProduct(pen);
         item2.setProduct(book);
         item3.setProduct(computer);
-
-        invoice1.getItems().add(item1);
-        invoice1.getItems().add(item2);
-        invoice1.getItems().add(item3);
 
         itemDao.save(item1);
         itemDao.save(item2);
