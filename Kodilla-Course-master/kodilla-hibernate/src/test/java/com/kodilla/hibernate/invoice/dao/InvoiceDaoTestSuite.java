@@ -67,7 +67,6 @@ public class InvoiceDaoTestSuite {
             itemDao.deleteById(item1ID);
             itemDao.deleteById(item2ID);
             itemDao.deleteById(item3ID);
-            itemDao.deleteById(invoiceID);
         } catch (Exception e){
         }
     }
