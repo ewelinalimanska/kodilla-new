@@ -9,11 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany(){
@@ -59,5 +63,56 @@ public class CompanyDaoTestSuite {
         } catch (Exception e) {
             //do nothing
         }
+    }
+    @Test
+    public void testNamedQueries(){
+
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+        Employee stevenClarckson = new Employee("Steven", "Clarckson");
+
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+
+        softwareMachine.getEmployees().add(johnSmith);
+        dataMaesters.getEmployees().add(stephanieClarckson);
+        dataMaesters.getEmployees().add(lindaKovalsky);
+        greyMatter.getEmployees().add(johnSmith);
+        greyMatter.getEmployees().add(lindaKovalsky);
+        greyMatter.getEmployees().add(stevenClarckson);
+
+        johnSmith.getCompanies().add(softwareMachine);
+        johnSmith.getCompanies().add(greyMatter);
+        stephanieClarckson.getCompanies().add(dataMaesters);
+        lindaKovalsky.getCompanies().add(dataMaesters);
+        lindaKovalsky.getCompanies().add(greyMatter);
+        stevenClarckson.getCompanies().add(greyMatter);
+
+        //When
+//        companyDao.save(softwareMachine);
+//        int softwareMachineId = softwareMachine.getId();
+//        companyDao.save(dataMaesters);
+//        int dataMaestersId = dataMaesters.getId();
+//        companyDao.save(greyMatter);
+//        int greyMatterId = greyMatter.getId();
+
+        List<Employee> listEmployee = employeeDao.retrieveEmployeesByLastName("Clarckson");
+        List<Company> listCompany = companyDao.retrieveCompaniesWithFirst3Letters("Gre");
+
+        //Then
+        Assert.assertEquals(2, listEmployee.size());
+        Assert.assertEquals(3, listCompany.size());
+
+        //CleaUp
+        try {
+            companyDao.deleteAll();
+            employeeDao.deleteAll();
+        } catch (Exception e) {
+            //do nothing
+        }
+
     }
 }
