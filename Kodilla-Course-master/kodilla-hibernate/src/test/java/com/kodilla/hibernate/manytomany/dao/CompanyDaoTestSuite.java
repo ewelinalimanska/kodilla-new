@@ -91,9 +91,15 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(greyMatter);
         stevenClarckson.getCompanies().add(greyMatter);
 
+        //when
+        employeeDao.save(stephanieClarckson);
+        employeeDao.save(johnSmith);
+        employeeDao.save(lindaKovalsky);
+        employeeDao.save(stevenClarckson);
 
         List<Employee> listEmployee = employeeDao.retrieveEmployeesByLastName("Clarckson");
 
+        //then
         Assert.assertEquals(2, listEmployee.size());
 
         //CleaUp
@@ -134,9 +140,15 @@ public class CompanyDaoTestSuite {
         stevenClarckson.getCompanies().add(greyMatter);
 
         //when
+
+        companyDao.save(softwareMachine);
+        companyDao.save(greyMatter);
+        companyDao.save(dataMaesters);
+
         List<Company> listCompany = companyDao.retrieveCompaniesWithFirst3Letters("Gre");
 
-        Assert.assertEquals(3, listCompany.size());
+        //then
+        Assert.assertEquals(1, listCompany.size());
 
         //CleaUp
         try {
@@ -144,6 +156,5 @@ public class CompanyDaoTestSuite {
         } catch (Exception e) {
             //do nothing
         }
-
     }
 }
