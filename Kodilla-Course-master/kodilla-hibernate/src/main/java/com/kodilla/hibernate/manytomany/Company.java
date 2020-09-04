@@ -11,6 +11,11 @@ import java.util.List;
         query = "SELECT * FROM COMPANIES WHERE substring(COMPANY_NAME, 1, 3) = :LETTERS",
         resultClass = Company.class
         )
+
+@NamedQuery(
+        name = "Company.retrieveCompaniesContainingLetters",
+        query = "SELECT * FROM Company where COMPANY_NAME LIKE '%:LETTERS_IN_COMPANY_NAME%'"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

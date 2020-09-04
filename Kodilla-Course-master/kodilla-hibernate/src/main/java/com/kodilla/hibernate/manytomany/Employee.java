@@ -11,6 +11,10 @@ import java.util.List;
         name = "Employee.retrieveEmployeesByLastName",
         query = "FROM Employee WHERE lastname = : LASTNAME"
 )
+@NamedQuery(
+        name = "Employee.retrieveEmployeeContainingLetters",
+        query = "SELECT * FROM Employee where EMPLOYEE_NAME LIKE '%:LETTERS_IN_EMPLOYEE_NAME%'"
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
