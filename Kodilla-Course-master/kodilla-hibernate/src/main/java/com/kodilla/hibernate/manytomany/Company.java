@@ -6,16 +6,18 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Company.retrieveCompaniesWithFirst3Letters",
-        query = "SELECT * FROM COMPANIES WHERE substring(COMPANY_NAME, 1, 3) = :LETTERS",
-        resultClass = Company.class
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Company.retrieveCompaniesWithFirst3Letters",
+                query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME,1,3) = :LETTERS",
+                resultClass = Company.class
+        ),
+        @NamedNativeQuery(
+                name = "Company.retrieveCompaniesContainingLetters",
+                query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE CONCAT('%',:LETTERS_IN_COMPANY_NAME, '%')",
+                resultClass = Company.class
         )
-
-@NamedQuery(
-        name = "Company.retrieveCompaniesContainingLetters",
-        query = "SELECT * FROM Company where COMPANY_NAME LIKE '%:LETTERS_IN_COMPANY_NAME%'"
-)
+} )
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
