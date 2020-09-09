@@ -6,18 +6,16 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQueries({
+@NamedQueries({
 
-        @NamedNativeQuery(
+        @NamedQuery(
                 name = "Employee.retrieveEmployeesByLastName",
-                query = "SELECT FROM Employee WHERE lastname = :LASTNAME",
-                resultClass = Employee.class
+                query = "FROM Employee WHERE lastname = :LASTNAME"
         ),
 
-        @NamedNativeQuery(
+        @NamedQuery(
                 name = "Employee.retrieveEmployeeContainingLetters",
-                query = "SELECT * FROM Employees WHERE LASTNAME LIKE CONCAT('%',:LETTERS_IN_EMPLOYEE_NAME, '%')",
-                resultClass = Employee.class
+                query = "FROM Employee WHERE LASTNAME LIKE CONCAT('%',:LETTERS_IN_EMPLOYEE_NAME, '%')"
         )
 })
 
