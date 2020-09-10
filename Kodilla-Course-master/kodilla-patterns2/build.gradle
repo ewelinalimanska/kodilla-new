@@ -17,6 +17,7 @@ dependencies {
     implementation 'junit:junit:4.12'
 	implementation 'junit:junit:4.12'
 	implementation 'junit:junit:4.12'
+	compile('org.springframework.boot:spring-boot-starter-aop')
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

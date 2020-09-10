@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class PizzaOrderTestSuite {
 
     @Test
-    public void testBasicPizzaOrderCost(){
+    public void testBasicPizzaOrderCost() {
 
         //given
         PizzaOrder pizza = new BasicPizzaOrder();
@@ -24,7 +24,7 @@ public class PizzaOrderTestSuite {
     }
 
     @Test
-    public void testBasicPizzaOrderDescription(){
+    public void testBasicPizzaOrderDescription() {
 
         //given
         PizzaOrder pizza = new BasicPizzaOrder();
@@ -38,7 +38,7 @@ public class PizzaOrderTestSuite {
     }
 
     @Test
-    public void testExtraCheesePizzaOrderCost(){
+    public void testExtraCheesePizzaOrderCost() {
 
         //given
         PizzaOrder pizza = new BasicPizzaOrder();
@@ -54,7 +54,7 @@ public class PizzaOrderTestSuite {
     }
 
     @Test
-    public void testExtraCheesePizzaOrderDescription(){
+    public void testExtraCheesePizzaOrderDescription() {
 
         //given
         PizzaOrder pizza = new BasicPizzaOrder();
@@ -69,7 +69,7 @@ public class PizzaOrderTestSuite {
     }
 
     @Test
-    public void testHamPizzaOrderCost(){
+    public void testHamPizzaOrderCost() {
 
         //given
         PizzaOrder pizza = new BasicPizzaOrder();
@@ -85,7 +85,7 @@ public class PizzaOrderTestSuite {
     }
 
     @Test
-    public void testHamPizzaOrderDescription(){
+    public void testHamPizzaOrderDescription() {
 
         //given
         PizzaOrder pizza = new BasicPizzaOrder();
@@ -100,7 +100,7 @@ public class PizzaOrderTestSuite {
     }
 
     @Test
-    public void testMushroomAndRucolaPizzaOrderCost(){
+    public void testMushroomAndRucolaPizzaOrderCost() {
 
         //given
         PizzaOrder pizza = new BasicPizzaOrder();
@@ -117,7 +117,7 @@ public class PizzaOrderTestSuite {
     }
 
     @Test
-    public void testMushroomAndRucolaPizzaOrderDescription(){
+    public void testMushroomAndRucolaPizzaOrderDescription() {
 
         //given
         PizzaOrder pizza = new BasicPizzaOrder();
@@ -133,7 +133,7 @@ public class PizzaOrderTestSuite {
     }
 
     @Test
-    public void testTheBestPizzaOrderCost(){
+    public void testTheBestPizzaOrderCost() {
 
         //given
         PizzaOrder pizza = new BasicPizzaOrder();
@@ -147,11 +147,11 @@ public class PizzaOrderTestSuite {
 
         //then
 
-        assertEquals(new BigDecimal(30), cost);
+        assertEquals(new BigDecimal(42), cost);
     }
 
     @Test
-    public void testTheBestPizzaOrderDescription(){
+    public void testTheBestPizzaOrderDescription() {
 
         //given
         PizzaOrder pizza = new BasicPizzaOrder();
