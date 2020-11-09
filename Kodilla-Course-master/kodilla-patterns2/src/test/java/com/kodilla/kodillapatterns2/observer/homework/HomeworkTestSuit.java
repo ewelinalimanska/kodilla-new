@@ -27,7 +27,7 @@ public class HomeworkTestSuit {
 
         //when
         klarasTask.addTask(new Task("AOP", 21, "I have problem with this exercise :("));
-        klarasTask.addTask(new Task("Observer", 24, "Everything working"));
+        klarasTask.addTask(new Task("Observer", 24, "Everything works"));
         ricksTask.addTask(new Task("Individual project", 12, "My first application"));
         mortysTask.addTask(new Task("Spring WEB", 18, "I don't understand this module"));
 
