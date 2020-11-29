@@ -9,10 +9,10 @@ public class EBayTestingApp {
 
     public static void main(String[] args) {
 
-        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
-        driver.get("https://www.ebay.com");
+        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);
+        driver.get("https://www.ebay.com/");
 
-        WebElement searchField = driver.findElement(By.className("gh-tb ui-autocomplete-input"));
+        WebElement searchField = driver.findElement(By.id("gh-ac"));
         searchField.sendKeys("Laptop");
         searchField.submit();
     }
